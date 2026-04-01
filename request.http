@@ -1,0 +1,9 @@
+// POST http://localhost:8080/games
+// Content-Type: application/json
+
+// {
+//   "playerName": "Tommy",
+//   "fieldOfStudy": "Wirtschaftsinformatik"
+// }
+
+// GET http://localhost:8080/games/2
