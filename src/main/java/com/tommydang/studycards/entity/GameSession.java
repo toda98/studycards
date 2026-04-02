@@ -1,7 +1,9 @@
 package com.tommydang.studycards.entity;
 
+import com.tommydang.studycards.enums.GameSessionStatus;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 public class GameSession {
@@ -39,9 +41,10 @@ public class GameSession {
     @Column(name = "max_energy", nullable = false)
     private int maxEnergy;
 
-    @NotBlank
-    @Column(name = "status", nullable = false, length = 512)
-    private String status;
+    @NotNull
+    @Column(name = "status", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private GameSessionStatus status;
 
     protected GameSession() {}
 
@@ -55,7 +58,7 @@ public class GameSession {
             int currentEnergy,
             int maxStress,
             int maxEnergy,
-            String status
+            GameSessionStatus status
     ) {
         this.playerName = playerName;
         this.selectedFieldOfStudy = selectedFieldOfStudy;
@@ -99,7 +102,7 @@ public class GameSession {
     public int getMaxEnergy() {
         return maxEnergy;
     }
-    public String getStatus() {
+    public GameSessionStatus getStatus() {
         return status;
     }
 
@@ -133,7 +136,7 @@ public class GameSession {
     public void setMaxEnergy(int maxEnergy) {
         this.maxEnergy = maxEnergy;
     }
-    public void setStatus(String status) {
+    public void setStatus(GameSessionStatus status) {
         this.status = status;
     }
 }
