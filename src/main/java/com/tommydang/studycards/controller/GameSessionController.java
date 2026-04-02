@@ -3,6 +3,7 @@ package com.tommydang.studycards.controller;
 import com.tommydang.studycards.dto.CreateGameSessionRequest;
 import com.tommydang.studycards.dto.GameSessionResponse;
 import com.tommydang.studycards.entity.GameSession;
+import com.tommydang.studycards.exception.GameSessionNotFoundException;
 import com.tommydang.studycards.mapper.GameSessionMapper;
 import com.tommydang.studycards.service.GameSessionService;
 import jakarta.validation.Valid;
