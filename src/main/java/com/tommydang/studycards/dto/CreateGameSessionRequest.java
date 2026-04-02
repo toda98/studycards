@@ -1,12 +1,13 @@
 package com.tommydang.studycards.dto;
 
 import jakarta.validation.constraints.NotBlank;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 
 public class CreateGameSessionRequest {
-    @NotBlank
+    @NotBlank(message = "Player name must not be blank")
     private String playerName;
 
-    @NotBlank
+    @NotBlank(message = "Field of study must not be blank")
     private String fieldOfStudy;
 
     public CreateGameSessionRequest() {}
