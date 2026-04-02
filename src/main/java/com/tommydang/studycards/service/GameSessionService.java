@@ -1,6 +1,7 @@
 package com.tommydang.studycards.service;
 
 import com.tommydang.studycards.entity.GameSession;
+import com.tommydang.studycards.enums.GameSessionStatus;
 import com.tommydang.studycards.exception.GameSessionNotFoundException;
 import com.tommydang.studycards.repository.GameSessionRepository;
 import org.springframework.stereotype.Service;
@@ -26,7 +27,7 @@ public class GameSessionService {
                 10,
                 100,
                 10,
-                "NEW"
+                GameSessionStatus.NEW
         );
         return gameSessionRepository.save(gameSession);
     }

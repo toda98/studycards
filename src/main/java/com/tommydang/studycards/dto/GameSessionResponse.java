@@ -1,5 +1,7 @@
 package com.tommydang.studycards.dto;
 
+import com.tommydang.studycards.enums.GameSessionStatus;
+
 public class GameSessionResponse {
     private final Long id;
     private final String playerName;
@@ -11,7 +13,7 @@ public class GameSessionResponse {
     private final int currentEnergy;
     private final int maxStress;
     private final int maxEnergy;
-    private final String status;
+    private final GameSessionStatus status;
 
     public GameSessionResponse(
             Long id,
@@ -24,7 +26,7 @@ public class GameSessionResponse {
             int currentEnergy,
             int maxStress,
             int maxEnergy,
-            String status
+            GameSessionStatus status
     ) {
         this.id = id;
         this.playerName = playerName;
@@ -69,7 +71,7 @@ public class GameSessionResponse {
     public int getMaxEnergy() {
         return maxEnergy;
     }
-    public String getStatus() {
+    public GameSessionStatus getStatus() {
         return status;
     }
 }
