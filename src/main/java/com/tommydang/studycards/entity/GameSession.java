@@ -5,6 +5,9 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 public class GameSession {
 
@@ -45,6 +48,9 @@ public class GameSession {
     @Column(name = "status", nullable = false)
     @Enumerated(EnumType.STRING)
     private GameSessionStatus status;
+
+    @OneToMany(mappedBy = "gameSession")
+    private Set<GameSessionStudyModule> gameSessionStudyModules = new HashSet<>();
 
     protected GameSession() {}
 
