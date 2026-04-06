@@ -26,4 +26,9 @@ public class GlobalExceptionHandler {
 
         return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
     }
+
+    @ExceptionHandler(StudyModuleNotFoundException.class)
+    public ResponseEntity<String> handleStudyModuleNotFoundException(StudyModuleNotFoundException studyModuleNotFoundException) {
+        return new ResponseEntity<>("Error: " + studyModuleNotFoundException.getMessage(), HttpStatus.NOT_FOUND);
+    }
 }

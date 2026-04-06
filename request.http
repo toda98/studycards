@@ -8,6 +8,10 @@ Content-Type: application/json
 
 ###
 
+GET http://localhost:8080/games/1
+
+###
+
 POST http://localhost:8080/games
 Content-Type: application/json
 
@@ -18,8 +22,13 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:8080/games/1
+GET http://localhost:8080/games/10000000000
 
 ###
 
-GET http://localhost:8080/games/10000000000
+POST http://localhost:8080/games/1/modules
+Content-Type: application/json
+
+{
+  "selectedStudyModuleIds": [1, 2]
+}
