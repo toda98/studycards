@@ -2,6 +2,8 @@ package com.tommydang.studycards.dto;
 
 import com.tommydang.studycards.enums.GameSessionStatus;
 
+import java.util.Set;
+
 public class GameSessionResponse {
     private final Long id;
     private final String playerName;
@@ -14,6 +16,7 @@ public class GameSessionResponse {
     private final int maxStress;
     private final int maxEnergy;
     private final GameSessionStatus status;
+    private final Set<GameSessionStudyModuleResponse> gameSessionStudyModules;
 
     public GameSessionResponse(
             Long id,
@@ -26,7 +29,8 @@ public class GameSessionResponse {
             int currentEnergy,
             int maxStress,
             int maxEnergy,
-            GameSessionStatus status
+            GameSessionStatus status,
+            Set<GameSessionStudyModuleResponse> gameSessionStudyModules
     ) {
         this.id = id;
         this.playerName = playerName;
@@ -39,6 +43,7 @@ public class GameSessionResponse {
         this.maxStress = maxStress;
         this.maxEnergy = maxEnergy;
         this.status = status;
+        this.gameSessionStudyModules = gameSessionStudyModules;
     }
 
     public Long getId() {
@@ -73,5 +78,8 @@ public class GameSessionResponse {
     }
     public GameSessionStatus getStatus() {
         return status;
+    }
+    public Set<GameSessionStudyModuleResponse> getGameSessionStudyModules() {
+        return gameSessionStudyModules;
     }
 }

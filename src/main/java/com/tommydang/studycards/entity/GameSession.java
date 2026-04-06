@@ -78,6 +78,10 @@ public class GameSession {
         this.status = status;
     }
 
+    public void addGameSessionStudyModules(Set<GameSessionStudyModule> gameSessionStudyModules) {
+        this.gameSessionStudyModules.addAll(gameSessionStudyModules);
+    }
+
     public Long getId() {
         return id;
     }
@@ -110,6 +114,9 @@ public class GameSession {
     }
     public GameSessionStatus getStatus() {
         return status;
+    }
+    public Set<GameSessionStudyModule> getGameSessionStudyModules() {
+        return gameSessionStudyModules;
     }
 
     public void setId(Long id) {
