@@ -111,7 +111,6 @@ PostgreSQL on `localhost:5432/studycards`. Schema managed by Hibernate (`ddl-aut
 ## Backlog
 
 ### In Progress
-- [ ] Seed initial cards and effects (`CardDataInitializer`)
 
 ### Todo — Backend
 - [ ] `TurnService` — end turn, counter, energy reset, game-over check
@@ -132,6 +131,7 @@ PostgreSQL on `localhost:5432/studycards`. Schema managed by Hibernate (`ddl-aut
 - [x] REST endpoints: create/get session, assign/list modules
 - [x] Card hierarchy with `CardEffect` (single-table inheritance)
 - [x] `CardDataInitializer` (seed data initializer wired up)
+- [x] Seed initial cards and effects (`CardDataInitializer`)
 
 ## Commands
 
