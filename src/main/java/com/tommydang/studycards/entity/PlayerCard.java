@@ -9,7 +9,7 @@ import java.util.Set;
 @Entity
 @DiscriminatorValue("player_card")
 public class PlayerCard extends Card {
-    @Column(name = "energy_cost", nullable = false)
+    @Column(name = "energy_cost")
     private int energyCost;
 
     protected PlayerCard() {}
