@@ -17,14 +17,14 @@ public class CardEffect {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    @Check(constraints = "value >= 0")
-    @Column(name = "value", nullable = false)
-    private int value;
-
     @NotNull
     @Enumerated(EnumType.STRING)
     @Column(name = "operator_type", nullable = false)
     private OperatorType operatorType;
+
+    @Check(constraints = "value >= 0")
+    @Column(name = "value", nullable = false)
+    private int value;
 
     @NotNull
     @Enumerated(EnumType.STRING)
@@ -42,12 +42,12 @@ public class CardEffect {
     protected CardEffect() {}
 
     public CardEffect(
-            int value,
             OperatorType operatorType,
+            int value,
             ResourceType resourceType,
             TargetType targetType) {
-        this.value = value;
         this.operatorType = operatorType;
+        this.value = value;
         this.resourceType = resourceType;
         this.targetType = targetType;
     }
