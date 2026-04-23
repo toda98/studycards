@@ -36,3 +36,7 @@ Content-Type: application/json
 ###
 
 GET http://localhost:8080/study-modules
+
+###
+
+GET http://localhost:8080/fields-of-study

@@ -28,7 +28,6 @@ public abstract class Card {
             joinColumns = @JoinColumn(name = "card_id"),
             inverseJoinColumns = @JoinColumn(name = "card_effect_id")
     )
-
     private Set<CardEffect> cardEffects = new HashSet<>();
 
     protected Card() {}

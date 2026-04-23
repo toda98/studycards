@@ -64,16 +64,6 @@ Spring Boot REST API following a strict layered architecture — `com.tommydang.
 | `CardEffectService` | Apply effects to player stats and module progress |
 | `SemesterService` | *(optional)* Semester transition |
 
-## Development Workflow
-
-Features follow a structured cycle with Claude Code as pair-programming assistant:
-
-1. **Plan** — discuss what to build next, brainstorm approach, design classes before writing any code
-2. **Branch** — `feature/<short-description>` off `develop`
-3. **Implement** — write code, then use Claude Code for iterative architecture review and refinement
-4. **Test** — verify via `request.http` (happy path + error cases)
-5. **Merge** — commit with conventional message (`feat:`, `fix:`, `refactor:`), push, PR into `develop`
-
 ## Coding Conventions
 
 | Type | Pattern | Example |
