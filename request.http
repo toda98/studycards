@@ -3,12 +3,12 @@ Content-Type: application/json
 
 {
   "playerName": "Tommy",
-  "fieldOfStudy": "Wirtschaftsinformatik"
+  "fieldOfStudyId": 2
 }
 
 ###
 
-GET http://localhost:8080/games/1
+GET http://localhost:8080/games/552
 
 ###
 
@@ -26,7 +26,7 @@ GET http://localhost:8080/games/10000000000
 
 ###
 
-POST http://localhost:8080/games/1/modules
+POST http://localhost:8080/games/553/modules
 Content-Type: application/json
 
 {
@@ -43,4 +43,4 @@ GET http://localhost:8080/fields-of-study
 
 ###
 
-GET http://localhost:8080/fields-of-study/3/modules
+GET http://localhost:8080/fields-of-study/2/modules

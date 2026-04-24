@@ -17,6 +17,7 @@ public class GameSessionResponse {
     private final int maxEnergy;
     private final GameSessionStatus status;
     private final Set<GameSessionStudyModuleResponse> gameSessionStudyModules;
+    private final int totalCreditPoints;
 
     public GameSessionResponse(
             Long id,
@@ -30,7 +31,8 @@ public class GameSessionResponse {
             int maxStress,
             int maxEnergy,
             GameSessionStatus status,
-            Set<GameSessionStudyModuleResponse> gameSessionStudyModules
+            Set<GameSessionStudyModuleResponse> gameSessionStudyModules,
+            int totalCreditPoints
     ) {
         this.id = id;
         this.playerName = playerName;
@@ -44,6 +46,7 @@ public class GameSessionResponse {
         this.maxEnergy = maxEnergy;
         this.status = status;
         this.gameSessionStudyModules = gameSessionStudyModules;
+        this.totalCreditPoints = totalCreditPoints;
     }
 
     public Long getId() {
@@ -81,5 +84,8 @@ public class GameSessionResponse {
     }
     public Set<GameSessionStudyModuleResponse> getGameSessionStudyModules() {
         return gameSessionStudyModules;
+    }
+    public int getTotalCreditPoints() {
+        return totalCreditPoints;
     }
 }

@@ -21,7 +21,7 @@ public class GameSessionMapper {
         return new GameSessionResponse(
                 gameSession.getId(),
                 gameSession.getPlayerName(),
-                gameSession.getSelectedFieldOfStudy(),
+                gameSession.getSelectedFieldOfStudy().getName(),
                 gameSession.getCurrentSemester(),
                 gameSession.getCurrentTurn(),
                 gameSession.getMaxTurns(),
@@ -30,7 +30,8 @@ public class GameSessionMapper {
                 gameSession.getMaxStress(),
                 gameSession.getMaxEnergy(),
                 gameSession.getStatus(),
-                mapGameSessionStudyModules(gameSession.getGameSessionStudyModules())
+                mapGameSessionStudyModules(gameSession.getGameSessionStudyModules()),
+                gameSession.getTotalCreditPoints()
         );
     }
 
