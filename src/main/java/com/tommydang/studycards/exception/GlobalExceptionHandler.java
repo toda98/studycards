@@ -31,4 +31,9 @@ public class GlobalExceptionHandler {
     public ResponseEntity<String> handleStudyModuleNotFoundException(StudyModuleNotFoundException studyModuleNotFoundException) {
         return new ResponseEntity<>("Error: " + studyModuleNotFoundException.getMessage(), HttpStatus.NOT_FOUND);
     }
+
+    @ExceptionHandler(FieldOfStudyNotFoundException.class)
+    public ResponseEntity<String> handleFieldOfStudyNotFoundException(FieldOfStudyNotFoundException fieldOfStudyNotFoundException) {
+        return new ResponseEntity<>("Error: " + fieldOfStudyNotFoundException.getMessage(), HttpStatus.NOT_FOUND);
+    }
 }

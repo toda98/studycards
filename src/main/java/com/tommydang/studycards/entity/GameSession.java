@@ -19,9 +19,10 @@ public class GameSession {
     @Column(name = "player_name", nullable = false, length = 512)
     private String playerName;
 
-    @NotBlank
-    @Column(name = "selected_field_of_study", nullable = false, length = 512)
-    private String selectedFieldOfStudy;
+    @NotNull
+    @ManyToOne
+    @JoinColumn(name = "field_of_study_id", nullable = false)
+    private FieldOfStudy selectedFieldOfStudy;
 
     @Column(name = "current_semester", nullable = false)
     private int currentSemester;
@@ -52,11 +53,13 @@ public class GameSession {
     @OneToMany(mappedBy = "gameSession")
     private Set<GameSessionStudyModule> gameSessionStudyModules = new HashSet<>();
 
+    private int totalCreditPoints = 0;
+
     protected GameSession() {}
 
     public GameSession(
             String playerName,
-            String selectedFieldOfStudy,
+            FieldOfStudy selectedFieldOfStudy,
             int currentSemester,
             int currentTurn,
             int maxTurns,
@@ -88,7 +91,7 @@ public class GameSession {
     public String getPlayerName() {
         return playerName;
     }
-    public String getSelectedFieldOfStudy() {
+    public FieldOfStudy getSelectedFieldOfStudy() {
         return selectedFieldOfStudy;
     }
     public int getCurrentTurn() {
@@ -118,6 +121,9 @@ public class GameSession {
     public Set<GameSessionStudyModule> getGameSessionStudyModules() {
         return gameSessionStudyModules;
     }
+    public int getTotalCreditPoints() {
+        return totalCreditPoints;
+    }
 
     public void setId(Long id) {
         this.id = id;
@@ -125,7 +131,7 @@ public class GameSession {
     public void setPlayerName(String playerName) {
         this.playerName = playerName;
     }
-    public void setSelectedFieldOfStudy(String selectedFieldOfStudy) {
+    public void setSelectedFieldOfStudy(FieldOfStudy selectedFieldOfStudy) {
         this.selectedFieldOfStudy = selectedFieldOfStudy;
     }
     public void setCurrentSemester(int currentSemester) {
@@ -151,5 +157,8 @@ public class GameSession {
     }
     public void setStatus(GameSessionStatus status) {
         this.status = status;
+    }
+    public void setTotalCreditPoints(int totalCreditPoints) {
+        this.totalCreditPoints = totalCreditPoints;
     }
 }

@@ -9,8 +9,8 @@ import com.tommydang.studycards.exception.StudyModuleNotFoundException;
 import com.tommydang.studycards.repository.GameSessionRepository;
 import com.tommydang.studycards.repository.GameSessionStudyModuleRepository;
 import com.tommydang.studycards.repository.StudyModuleRepository;
-import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashSet;
 import java.util.Optional;

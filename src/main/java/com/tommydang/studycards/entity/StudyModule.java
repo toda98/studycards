@@ -3,6 +3,9 @@ package com.tommydang.studycards.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 public class StudyModule {
 
@@ -26,6 +29,9 @@ public class StudyModule {
 
     @Column(name = "required_learn_progress", nullable = false)
     private int requiredLearnProgress;
+
+    @ManyToMany(mappedBy = "studyModules")
+    private Set<FieldOfStudy> fieldOfStudies = new HashSet<>();
 
     protected StudyModule() {}
 

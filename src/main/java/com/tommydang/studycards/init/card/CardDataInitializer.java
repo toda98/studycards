@@ -68,16 +68,13 @@ public class CardDataInitializer implements CommandLineRunner {
         Optional<CardEffect> cardEffect = cardEffectRepository.findByOperatorTypeAndValueAndResourceTypeAndTargetType(
                 operatorType, value, resourceType, targetType);
 
-        CardEffect actualCardEffect;
-
         if (cardEffect.isEmpty()) {
-            actualCardEffect = new CardEffect(operatorType, value, resourceType, targetType);
+            CardEffect actualCardEffect = new CardEffect(operatorType, value, resourceType, targetType);
             cardEffectRepository.save(actualCardEffect);
             return actualCardEffect;
         } else {
-            actualCardEffect = cardEffect.get();
+            return cardEffect.get();
         }
-        return actualCardEffect;
     }
 
     private void initializePlayerCards() {

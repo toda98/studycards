@@ -38,7 +38,7 @@ public class GameSessionController {
 
     @PostMapping
     public ResponseEntity<GameSessionResponse> createGameSession(@Valid @RequestBody CreateGameSessionRequest createGameSessionRequest) {
-        GameSession gameSession = gameSessionService.createGameSession(createGameSessionRequest.getPlayerName(), createGameSessionRequest.getFieldOfStudy());
+        GameSession gameSession = gameSessionService.createGameSession(createGameSessionRequest.getPlayerName(), createGameSessionRequest.getFieldOfStudyId());
         return ResponseEntity.status(HttpStatus.CREATED).body(gameSessionMapper.toResponse(gameSession));
     }
 

@@ -1,33 +1,33 @@
 package com.tommydang.studycards.dto;
 
 import jakarta.validation.constraints.NotBlank;
-import org.springframework.web.bind.MethodArgumentNotValidException;
+import jakarta.validation.constraints.NotNull;
 
 public class CreateGameSessionRequest {
     @NotBlank(message = "Player name must not be blank")
     private String playerName;
 
-    @NotBlank(message = "Field of study must not be blank")
-    private String fieldOfStudy;
+    @NotNull(message = "Field of study must not be blank")
+    private Long fieldOfStudyId;
 
     public CreateGameSessionRequest() {}
 
-    public CreateGameSessionRequest(String playerName, String fieldOfStudy) {
+    public CreateGameSessionRequest(String playerName, Long fieldOfStudyId) {
         this.playerName = playerName;
-        this.fieldOfStudy = fieldOfStudy;
+        this.fieldOfStudyId = fieldOfStudyId;
     }
 
     public String getPlayerName() {
         return playerName;
     }
-    public String getFieldOfStudy() {
-        return fieldOfStudy;
+    public Long getFieldOfStudyId() {
+        return fieldOfStudyId;
     }
 
     public void setPlayerName(String playerName) {
         this.playerName = playerName;
     }
-    public void setFieldOfStudy(String fieldOfStudy) {
-        this.fieldOfStudy = fieldOfStudy;
+    public void setFieldOfStudyId(Long fieldOfStudyId) {
+        this.fieldOfStudyId = fieldOfStudyId;
     }
 }
