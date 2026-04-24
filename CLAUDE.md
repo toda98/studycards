@@ -40,7 +40,7 @@ Spring Boot REST API following a strict layered architecture — `com.tommydang.
 
 **`CardEffect`** drives all game mechanics via: `operatorType` (ADD/SUB/MUL/DIV) · `value` · `resourceType` (LEARN_PROGRESS/STRESS/ENERGY) · `targetType` (PLAYER/SINGLE_SELECTED_MODULE/SINGLE_RANDOM_MODULE/MULTIPLE_RANDOM_MODULES/ALL_MODULES)
 
-**`GameSession`** tracks player name, field of study, semester, turn counter, stress/energy pools, and status: NEW → IN_PROGRESS → WON/LOST/ABANDONED
+**`GameSession`** tracks player name, field of study, semester, turn counter, stress/energy pools, and status: NEW → IN_PROGRESS → WON/LOST/ABANDONED. Holds `Set<PlayerCard> handCards` via `@ManyToMany` (join table `game_session_hand_cards`).
 
 **`GameSessionStudyModule`** is a rich join entity — not just a foreign key table. It holds `currentLearnProgress`, `currentTries`/`maxTries`, and its own status (IN_PROGRESS/PASSED/FAILED).
 
@@ -131,6 +131,7 @@ PostgreSQL on `localhost:5432/studycards`. Schema managed by Hibernate (`ddl-aut
 - [x] FieldOfStudy entity, repository, seed data, REST endpoints
 - [x] FieldOfStudyDataInitializer and StudyModuleDataInitializer implemented
 - [x] StudyModule.creditPoints field added + @ManyToMany FieldOfStudy relation
+- [x] GameSession.handCards added as @ManyToMany PlayerCard (join table game_session_hand_cards); PlayerCardResponse + CardEffectResponse DTOs + mappers added; GET /games/{id} returns handCards
 
 ## Commands
 

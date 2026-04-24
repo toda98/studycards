@@ -55,6 +55,14 @@ public class GameSession {
 
     private int totalCreditPoints = 0;
 
+    @ManyToMany
+    @JoinTable(
+            name = "game_session_hand_cards",
+            joinColumns = @JoinColumn(name = "game_session_id"),
+            inverseJoinColumns = @JoinColumn(name = "card_id")
+    )
+    private Set<PlayerCard> handCards = new HashSet<>();
+
     protected GameSession() {}
 
     public GameSession(
@@ -124,6 +132,9 @@ public class GameSession {
     public int getTotalCreditPoints() {
         return totalCreditPoints;
     }
+    public Set<PlayerCard> getHandCards() {
+        return handCards;
+    }
 
     public void setId(Long id) {
         this.id = id;
@@ -160,5 +171,8 @@ public class GameSession {
     }
     public void setTotalCreditPoints(int totalCreditPoints) {
         this.totalCreditPoints = totalCreditPoints;
+    }
+    public void setHandCards(Set<PlayerCard> handCards) {
+        this.handCards = handCards;
     }
 }

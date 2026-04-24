@@ -43,7 +43,7 @@ public class GameSessionService {
     }
 
     public GameSession getGameSessionById(Long id) throws GameSessionNotFoundException {
-        Optional<GameSession> gameSession = gameSessionRepository.findByIdWithModules(id);
+        Optional<GameSession> gameSession = gameSessionRepository.findByIdWithDetails(id);
         if (gameSession.isEmpty()) {
             throw new GameSessionNotFoundException("Id: [" + id + "] not found");
         }
