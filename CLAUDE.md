@@ -44,6 +44,9 @@ Spring Boot REST API following a strict layered architecture — `com.tommydang.
 
 **`GameSessionStudyModule`** is a rich join entity — not just a foreign key table. It holds `currentLearnProgress`, `currentTries`/`maxTries`, and its own status (IN_PROGRESS/PASSED/FAILED).
 
+**`FieldOfStudy`** — groups `StudyModule`s for a field (e.g. Informatik). Referenced by `GameSession` via `@ManyToOne`; modules linked via `@ManyToMany`.
+
+
 ## Game Rules
 
 - Player starts with fixed energy and stress values
@@ -82,12 +85,14 @@ Packages stay flat — no sub-packages within a layer.
 
 ## REST Endpoints
 
-| Method | Path | Description |
-|---|---|---|
-| `POST` | `/games` | Create a game session |
-| `GET` | `/games/{id}` | Get game session by ID |
-| `POST` | `/games/{id}/modules` | Assign study modules to a session |
-| `GET` | `/study-modules` | List all available study modules |
+| Method | Path                            | Description                               |
+|--------|---------------------------------|-------------------------------------------|
+| `POST` | `/games`                        | Create a game session with fieldOfStudyId |
+| `GET`  | `/games/{id}`                   | Get game session by ID                    |
+| `POST` | `/games/{id}/modules`           | Assign study modules to a session         |
+| `GET`  | `/study-modules`                | List all available study modules          |
+| `GET`  | `/fields-of-study`              | List all fields of study                  |
+| `GET`  | `/fields-of-study/{id}/modules` | Get study modules for a field             |
 
 Validation errors → 400 with field details. Not found → 404. Both handled centrally in `GlobalExceptionHandler`.  
 HTTP test requests are in `request.http` (happy path + error cases).
@@ -122,6 +127,10 @@ PostgreSQL on `localhost:5432/studycards`. Schema managed by Hibernate (`ddl-aut
 - [x] Card hierarchy with `CardEffect` (single-table inheritance)
 - [x] `CardDataInitializer` (seed data initializer wired up)
 - [x] Seed initial cards and effects (`CardDataInitializer`)
+- [x] GameSession.selectedFieldOfStudy migration to @ManyToOne FieldOfStudy
+- [x] FieldOfStudy entity, repository, seed data, REST endpoints
+- [x] FieldOfStudyDataInitializer and StudyModuleDataInitializer implemented
+- [x] StudyModule.creditPoints field added + @ManyToMany FieldOfStudy relation
 
 ## Commands
 
