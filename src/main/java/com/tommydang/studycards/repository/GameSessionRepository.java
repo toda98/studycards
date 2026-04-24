@@ -11,8 +11,10 @@ public interface GameSessionRepository extends CrudRepository<GameSession, Long>
     @Query("SELECT g " +
            "FROM GameSession g " +
            "LEFT JOIN FETCH " +
-           "g.gameSessionStudyModules " +
-           "WHERE g.id = :id"
+               "g.gameSessionStudyModules " +
+           "LEFT JOIN FETCH " +
+              "g.handCards " +
+              "WHERE g.id = :id "
     )
-    Optional<GameSession> findByIdWithModules(@Param("id") Long id);
+    Optional<GameSession> findByIdWithDetails(@Param("id") Long id);
 }
